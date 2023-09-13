@@ -17,6 +17,9 @@
     "prisma": "^5.2.0",
     "tslib": "^2.6.2"
   },
+  "prisma": {
+    "seed": "bun -r dotenv prisma/seed.ts"
+  },
   "scripts": {
     "start": "bun -r dotenv src/index.ts"
   }
