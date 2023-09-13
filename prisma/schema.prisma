@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Student {
+  id String @id @default(cuid())
+  majorId String
+  uniqueId String @unique
+  firstName String
+  lastName String
+  placeOfBirth DateTime
+  dateOfBirth DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  major Major @relation("MajorStudents", fields: [majorId], references: [id])
+}
+
+model Major {
+  id String @id @default(cuid())
+  fullName String
+  shortName String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  students Student[] @relation("MajorStudents")
+}

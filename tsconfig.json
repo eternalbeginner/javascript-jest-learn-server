@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "buildOptions": {
+    "verbose": true
+  },
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "skipDefaultLibCheck": true,
+    "sourceMap": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts"]
+}
